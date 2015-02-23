@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Author</key>
+	<string>Morni Colhkher</string>
+	<key>Builder Version</key>
+	<string>10600.3.18</string>
+	<key>CFBundleDisplayName</key>
+	<string>Seen Blocker for Facebook™</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.mybrowseraddon.seen</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>Chrome</key>
+	<dict>
+		<key>Database Quota</key>
+		<real>1048576</real>
+		<key>Global Page</key>
+		<string>lib/safari/background.html</string>
+		<key>Toolbar Items</key>
+		<array>
+			<dict>
+				<key>Identifier</key>
+				<string>toolbarbutton</string>
+				<key>Image</key>
+				<string>data/icons/16.png</string>
+				<key>Label</key>
+				<string>Seen Blocker Facebook™</string>
+			</dict>
+		</array>
+	</dict>
+	<key>Content</key>
+	<dict>
+		<key>Scripts</key>
+		<dict>
+			<key>End</key>
+			<array>
+				<string>data/safari/inject.js</string>
+			</array>
+		</dict>
+	</dict>
+	<key>Description</key>
+	<string>Facebook™ Seen Blocker allows you to read your Facebook messages without notifying the sender</string>
+	<key>DeveloperIdentifier</key>
+	<string>2C3W8RZ8ND</string>
+	<key>ExtensionInfoDictionaryVersion</key>
+	<string>1.0</string>
+	<key>Permissions</key>
+	<dict>
+		<key>Website Access</key>
+		<dict>
+			<key>Include Secure Pages</key>
+			<true/>
+			<key>Level</key>
+			<string>All</string>
+		</dict>
+	</dict>
+	<key>Website</key>
+	<string>http://mybrowseraddon.com/seen-blocker.html</string>
+</dict>
+</plist>

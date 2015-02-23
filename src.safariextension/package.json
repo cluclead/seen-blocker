@@ -1,0 +1,17 @@
+{
+  "fullName": "Facebook™ Seen Blocker",
+  "name": "isbffacebook",
+  "description": "Facebook™ Seen Blocker lets you read your Facebook messages without notifying the sender.",
+  "id": "jid0-AcfdPqSA2Ugt2vdJh6Kj7IiOp5W",
+  "license": "mozilla public license 1.1",
+  "version": "0.1.0",
+  "author": "Morni Colhkher",
+  "lib": "lib",
+  "main": "common",
+  "url": "http://mybrowseraddon.com/seen-blocker.html",
+  "icon": "data/icons/32.png",
+  "icon64": "data/icons/64.png",
+  "permissions": {
+    "private-browsing": true
+  }
+}
