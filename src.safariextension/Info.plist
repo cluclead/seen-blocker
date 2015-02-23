@@ -47,19 +47,26 @@
 	<key>Description</key>
 	<string>Facebook™ Seen Blocker allows you to read your Facebook messages without notifying the sender</string>
 	<key>DeveloperIdentifier</key>
-	<string>2C3W8RZ8ND</string>
+	<string>KGRSEG9P68</string>
 	<key>ExtensionInfoDictionaryVersion</key>
 	<string>1.0</string>
 	<key>Permissions</key>
 	<dict>
 		<key>Website Access</key>
 		<dict>
+			<key>Allowed Domains</key>
+			<array>
+				<string>facebook.com</string>
+				<string>www.facebook.com</string>
+			</array>
 			<key>Include Secure Pages</key>
 			<true/>
 			<key>Level</key>
-			<string>All</string>
+			<string>Some</string>
 		</dict>
 	</dict>
+	<key>Update Manifest URL</key>
+	<string>https://raw.githubusercontent.com/cluclead/seen-blocker/master/src.safariextension/update.plist</string>
 	<key>Website</key>
 	<string>http://mybrowseraddon.com/seen-blocker.html</string>
 </dict>
