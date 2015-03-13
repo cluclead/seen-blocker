@@ -79,7 +79,10 @@ chrome.webRequest.onBeforeRequest.addListener(
     }
   },
   { //Filter
-      urls: ["https://www.facebook.com/ajax/mercury/change_read_status.php"], //For testing purposes
+      urls: [
+        "https://www.facebook.com/ajax/mercury/change_read_status.php",
+        "https://www.facebook.com/ajax/messaging/typ.php"
+      ],
       types: ["xmlhttprequest"]
   },
   ["blocking"]

@@ -1,9 +1,9 @@
 {
   "name": "Facebook™ Seen Blocker",
   "short_name": "isbffacebook",
-  "description": "Facebook™ Seen Blocker lets you read your Facebook messages without notifying the sender.",
+  "description": "Facebook™ Seen Blocker allows you to read your Facebook messages without notifying the sender.",
   "author": "Morni Colhkher",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "manifest_version": 2,
   "permissions": [
     "storage",
@@ -11,7 +11,8 @@
     "background",
     "webRequest",
     "webRequestBlocking",
-    "https://www.facebook.com/ajax/mercury/change_read_status.php"
+    "https://www.facebook.com/ajax/mercury/change_read_status.php",
+    "https://www.facebook.com/ajax/messaging/typ.php"
   ],
   "web_accessible_resources": [],
   "browser_action": {

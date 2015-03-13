@@ -1,7 +1,11 @@
 function inject () {
   const fsWqgBgfBvv = XMLHttpRequest.prototype.open;
   XMLHttpRequest.prototype.open = function (method, url) {
-    if(sDvcGhtiU && typeof url === "string" && url.indexOf("change_read_status.php") !== -1) {
+    if(
+      sDvcGhtiU &&
+      typeof url === "string" &&
+      (url.indexOf("change_read_status.php") !== -1 || url.indexOf("typ.php") !== -1)
+    ) {
       arguments[1] = 'about:blank';
     }
     return fsWqgBgfBvv.apply(this, arguments);

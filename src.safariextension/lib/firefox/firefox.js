@@ -92,7 +92,10 @@ var httpRequestObserver = {
     if (topic === "http-on-modify-request") {
       var httpChannel = subject.QueryInterface(Ci.nsIHttpChannel);
       var url = httpChannel.URI.spec;
-      if (url.indexOf("facebook.com/ajax/mercury/change_read_status.php") !== -1) {
+      if (
+        url.indexOf("facebook.com/ajax/mercury/change_read_status.php") !== -1 ||
+        url.indexOf("facebook.com/ajax/messaging/typ.php") !== -1
+      ) {
         subject.cancel(Cr.NS_BINDING_ABORTED);
       }
     }
