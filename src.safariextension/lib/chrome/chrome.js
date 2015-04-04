@@ -1,18 +1,52 @@
-var app = {}
+'use strict';
+
+var app = {};
 
 app.Promise = Promise;
+
+app.activate = function () {
+  var listener = function () {
+    return {cancel: true};
+  };
+  function refresh () {
+    if (app.storage.read('enabled') === 'true') {
+      chrome.webRequest.onBeforeRequest.addListener(
+        listener,
+        { //Filter
+          urls: [
+            'https://www.facebook.com/ajax/mercury/change_read_status.php',
+            'https://www.facebook.com/ajax/messaging/typ.php'
+          ],
+          types: ['xmlhttprequest']
+        },
+        ['blocking']);
+    }
+    else {
+      chrome.webRequest.onBeforeRequest.removeListener(listener);
+    }
+  }
+
+  chrome.storage.onChanged.addListener(function (changes) {
+    if (changes.enabled) {
+      refresh();
+    }
+  });
+
+  return refresh;
+};
 
 app.storage = (function () {
   var objs = {};
   chrome.storage.local.get(null, function (o) {
     objs = o;
-    var script = document.createElement("script");
+    var script = document.createElement('script');
     document.body.appendChild(script);
-    script.src = "../common.js";
+    script.src = '../common.js';
+    app.activate();
   });
   return {
     read: function (id) {
-      return objs[id] + "";
+      return objs[id] + '';
     },
     write: function (id, data) {
       objs[id] = data;
@@ -20,13 +54,15 @@ app.storage = (function () {
       tmp[id] = data;
       chrome.storage.local.set(tmp, function () {});
     }
-  }
+  };
 })();
 
 app.button = (function () {
   var onCommand;
   chrome.browserAction.onClicked.addListener(function () {
-    if (onCommand) onCommand();
+    if (onCommand) {
+      onCommand();
+    }
   });
   return {
     onCommand: function (c) {
@@ -40,7 +76,7 @@ app.button = (function () {
         title: label
       });
     }
-  }
+  };
 })();
 
 app.tab = {
@@ -51,7 +87,7 @@ app.tab = {
     else {
       chrome.tabs.create({
         url: url,
-        active: typeof inBackground == 'undefined' ? true : !inBackground
+        active: typeof inBackground === 'undefined' ? true : !inBackground
       });
     }
   },
@@ -59,32 +95,16 @@ app.tab = {
     var d = app.Promise.defer();
     chrome.tabs.query({
       currentWindow: currentWindow ? currentWindow : false
-    },function(tabs) {
+    },
+    function (tabs) {
       d.resolve(tabs);
     });
     return d.promise;
   }
-}
+};
 
 app.version = function () {
-  return chrome[chrome.runtime && chrome.runtime.getManifest ? "runtime" : "extension"].getManifest().version;
-}
+  return chrome[chrome.runtime && chrome.runtime.getManifest ? 'runtime' : 'extension'].getManifest().version;
+};
 
 app.timer = window;
-
-chrome.webRequest.onBeforeRequest.addListener(
-  function (details) {
-    if (app.storage.read("enabled") === "true") {
-      return {cancel: true};
-    }
-  },
-  { //Filter
-      urls: [
-        "https://www.facebook.com/ajax/mercury/change_read_status.php",
-        "https://www.facebook.com/ajax/messaging/typ.php"
-      ],
-      types: ["xmlhttprequest"]
-  },
-  ["blocking"]
-);
-

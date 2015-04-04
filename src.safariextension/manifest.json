@@ -3,7 +3,7 @@
   "short_name": "isbffacebook",
   "description": "Facebook™ Seen Blocker allows you to read your Facebook messages without notifying the sender.",
   "author": "Morni Colhkher",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "manifest_version": 2,
   "permissions": [
     "storage",
