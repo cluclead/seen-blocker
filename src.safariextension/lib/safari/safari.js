@@ -5,7 +5,7 @@ app.Promise.defer = Q.defer;
 
 app.storage = {
   read: function (id) {
-    return localStorage[id] || null;
+    return safari.extension.settings[id] || null;
   },
   write: function (id, data) {
     if (id === "enabled") {
@@ -15,7 +15,7 @@ app.storage = {
         });
       });
     }
-    localStorage[id] = data + "";
+    safari.extension.settings[id] = data + '';
   }
 }
 
